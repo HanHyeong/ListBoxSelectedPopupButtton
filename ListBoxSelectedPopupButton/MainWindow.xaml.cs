@@ -24,33 +24,36 @@ namespace ListBoxSelectedPopupButton
         {
             InitializeComponent();
 
-            lb.Items.Add(new ListBoxItem() {Content = "가나다라마바사 1" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 2" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 3" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 4" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 5" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 6" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 7" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 8" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 9" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 10" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 11" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 12" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 13" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 14" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 15" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 16" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 17" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 18" });
-            lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 19" });
+            //lb.Items.Add(new ListBoxItem() {Content = "가나다라마바사 1" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 2" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 3" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 4" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 5" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 6" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 7" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 8" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 9" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 10" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 11" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 12" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 13" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 14" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 15" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 16" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 17" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 18" });
+            //lb.Items.Add(new ListBoxItem() { Content = "가나다라마바사 19" });
+
+            lb.Items.Add(new CustomItem() { Content = "아싸라비아 1" });
+            lb.Items.Add(new CustomItem() { Content = "아싸라비아 2" });
+            lb.Items.Add(new CustomItem() { Content = "아싸라비아 3" });
+            lb.Items.Add(new CustomItem() { Content = "아싸라비아 4" });
+            lb.Items.Add(new CustomItem() { Content = "아싸라비아 5" });
+            lb.Items.Add(new CustomItem() { Content = "아싸라비아 6" });
+            lb.Items.Add(new CustomItem() { Content = "아싸라비아 7" });
+            lb.Items.Add(new CustomItem() { Content = "아싸라비아 8" });
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            popup.IsOpen = !popup.IsOpen;
-        }
-
-                      
 
         private void btnLBItem_Click(object sender, RoutedEventArgs e)
         {
@@ -60,6 +63,7 @@ namespace ListBoxSelectedPopupButton
                 if (listItem != null)
                 {
                     listItem.IsSelected = true;
+                    popup.PlacementTarget = listItem as UIElement;
                     popup.IsOpen = !popup.IsOpen;
                 }
             }
@@ -68,5 +72,10 @@ namespace ListBoxSelectedPopupButton
                 Console.WriteLine(ex);
             }            
         }
+    }
+
+    public class CustomItem
+    {
+        public string Content { get; set; }
     }
 }
